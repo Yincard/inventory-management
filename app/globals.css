@@ -1,0 +1,198 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body Styles */
+body {
+  background-color: #121212; /* Dark mode background */
+  color: #E0E0E0; /* Light text color */
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005cbf;
+}
+
+/* Input and Modal Styles */
+input, .MuiTextField-root {
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  background-color: #424242; /* Dark background for inputs */
+  color: #E0E0E0;
+}
+
+.MuiModal-root {
+  backdrop-filter: blur(5px);
+}
+
+/* Modern Table Styles with Monospace Font */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: 'Courier New', monospace; /* Monospace font for table */
+}
+
+.table th, .table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.table th {
+  background-color: #1f1f1f; /* Darker header background */
+  color: #E0E0E0; /* Light text color for header */
+  font-weight: 600; /* Slightly bolder font for headers */
+  font-size: 1.1rem;
+}
+
+.table td {
+  background-color: #2c2c2c; /* Dark background for rows */
+  color: #E0E0E0; /* Light text color for rows */
+  font-size: 0.95rem;
+}
+
+.table td .icon-button {
+  color: #E0E0E0; /* Light color for icons */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.table td .icon-button:hover {
+  color: #1976d2; /* Vibrant hover color */
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Modal Content Styles */
+.modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 400px;
+  background-color: #424242;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  transform: translate(-50%, -50%);
+}
+
+.modal-title {
+  color: #E0E0E0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem; /* Larger title font size */
+  font-weight: 700; /* Bolder font weight */
+}
+
+.modal-input {
+  margin-bottom: 1rem; /* Add space between input fields */
+}
+
+/* Container and Typography Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.greeting-container {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.date-text {
+  color: #B0BEC5;
+  font-size: 1rem; /* Slightly larger date text */
+}
+
+.greeting-text {
+  font-size: 2.2rem; /* Larger greeting text */
+  font-weight: 700; /* Bolder greeting text */
+  color: #E0E0E0;
+  line-height: 1.2;
+  position: relative;
+}
+
+.greeting-highlight {
+  color: #1e88e5; /* Bright highlight color */
+  font-size: 5rem; /* Matching font size with greeting text */
+  font-weight: 700; /* Bolder highlight text */
+  display: inline-block;
+  position: relative;
+}
+
+.greeting-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 5px; /* Slightly larger underline */
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(30, 136, 229, 0.6), rgba(30, 136, 229, 0));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.greeting-highlight:hover::after {
+  transform: scaleX(1);
+}
+
+.slogan {
+  color: #B0B0B0;
+  margin-bottom: 0rem;
+  font-size: 1.5rem; /* Slightly larger date text */
+  font-style: italic;
+}
+
+
+/* Paper and Divider Styles */
+.inventory-paper {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: #333;
+  color: #E0E0E0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.inventory-title {
+  color: #E0E0E0;
+  font-weight: bold;
+}
+
+.divider {
+  margin-bottom: 1rem;
+  border-color: #555;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-box {
+    width: 90%;
+  }
+
+  .inventory-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
