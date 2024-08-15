@@ -208,6 +208,8 @@ export default function Home() {
     setError('');
     setOpen(true);
     if (itemName) {
+      const currentItem = originalInventory.find(item => item.name === itemName);
+      setQuantity(currentItem ? currentItem.quantity : 1);
       setEditingItem(itemName);
     }
   };
