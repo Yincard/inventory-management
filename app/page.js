@@ -23,6 +23,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
 
+  const [itemNameError, setItemNameError] = useState('');
+  const [quantityError, setQuantityError] = useState('');
+
   const updateInventory = async () => {
     setIsLoading(true);
     setFetchError(null);
@@ -69,12 +72,24 @@ export default function Home() {
   };
 
   const addItem = async (item, quantity) => {
+    let hasError = false;
+
     if (!item.trim()) {
-      setError('Item name is required');
-      return;
+      setItemNameError('Item name is required');
+      hasError = true;
+    } else {
+      setItemNameError('');
     }
 
-    setError('');
+    if (quantity <= 0) {
+      setQuantityError('Quantity must be a positive integer');
+      hasError = true;
+    } else {
+      setQuantityError('');
+    }
+
+    if (hasError) return; // Exit early if there are validation errors
+
     setLoading(true);
     try {
       const docRef = doc(collection(firestore, 'inventory'), item);
@@ -319,9 +334,10 @@ export default function Home() {
                 },
               }}
               className="modal-input"
-              error={Boolean(error)}
-              helperText={error}
+              error={Boolean(itemNameError)}
+              helperText={itemNameError}
             />
+
             <TextField
               label="Quantity"
               variant="outlined"
@@ -358,6 +374,9 @@ export default function Home() {
                 },
               }}
               className="modal-input"
+              error={Boolean(quantityError)}
+              helperText={quantityError}
+              inputProps={{ min: 1 }} // Ensure the input only allows positive integers
             />
             <Button
               variant="contained"
